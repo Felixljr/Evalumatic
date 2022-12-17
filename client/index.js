@@ -1,8 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App.js';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        {/* /* allows to have nested routes */}
+        <Route path='/*' element={<App />}></Route>
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+);
