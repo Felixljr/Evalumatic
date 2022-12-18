@@ -15,14 +15,14 @@ const studentSchema = new mongoose.Schema({
   talk: { type: Number },
   VMIRaw: { type: Number },
   VMIStand: { type: Number },
-  VMIPR: { type: Number },
+  VMIPR: { type: String },
   VPRaw: { type: Number },
   VPStand: { type: Number },
-  VPPR: { type: Number },
+  VPPR: { type: String },
   MCRaw: { type: Number },
   MCStand: { type: Number },
-  MCIPR: { type: Number },
-  eval: { type: String },
+  MCIPR: { type: String },
+  eval: { type: String, required: false },
 });
 
 module.exports = mongoose.model('Student', studentSchema)

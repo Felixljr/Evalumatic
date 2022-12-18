@@ -32,8 +32,35 @@ const Dashboard = () => {
 
   async function generateEval(e) {
     e.preventDefault();
-    console.log(fname, lname, sex);
-    //send to DB
+    await fetch('http://localhost:3000/dashboard', {
+      method: 'POST',
+      headers: {
+        'Content-type' : 'application/json',
+      },
+      body: JSON.stringify({
+        fname,
+        lname,
+        sex,
+        age,
+        reason,
+        condition,
+        meds,
+        roll,
+        sit,
+        walk,
+        words,
+        rawVMI,
+        scVMI,
+        prVMI,
+        rawVP,
+        scVP,
+        prVP,
+        rawMC,
+        scMC,
+        prMC
+      })
+    })
+    
   }
 
   return (
@@ -251,6 +278,8 @@ const Dashboard = () => {
             Submit
           </Button>
         </form>
+        <br />
+        <br />
       </div>
     </>
   );

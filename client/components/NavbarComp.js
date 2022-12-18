@@ -8,16 +8,24 @@ function NavbarComp() {
     <>
       <Navbar bg='dark' variant='dark'>
         <Container>
-          <Navbar.Brand>Evalumatic</Navbar.Brand>
+          <Navbar.Brand>
+            <h1>Evalumatic</h1>
+          </Navbar.Brand>
           <Nav className='me-auto'>
             <Nav.Link>
-              <Link to='/dashboard'>New Eval</Link>
+              <Link className='navLink' to='/dashboard'>
+                <h5>&emsp;New&emsp;</h5>
+              </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to='/dashboard/completed'>Completed</Link>
+              <Link className='navLink' to='/dashboard/completed'>
+                <h5>&emsp;Completed&emsp;</h5>
+              </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to='/'>Logout</Link>
+              <Link className='navLink' to='/'>
+                <h5>&emsp;Logout&emsp;</h5>
+              </Link>
             </Nav.Link>
           </Nav>
         </Container>
