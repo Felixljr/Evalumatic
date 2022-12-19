@@ -3,23 +3,34 @@ import NavbarComp from '../components/NavbarComp';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import TextPreview from '../components/TextPreview';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 
 const Completed = () => {
 
   const [ name, setName ] = useState('');
+  const [ text, setText ] = useState();
+  
+  //can be used to set html in a div
+  // const report = '<p>copy copy copy <strong>strong copy</strong></p>';
+  // dangerouslySetInnerHTML={{ __html: report }}
 
   const handleNameSelect = async (e) => {
     e.preventDefault();
-    console.log(name);
-      await fetch('http://localhost:3000/dashboard/completed/:name', {
+    // console.log(name);
+      await fetch(`http://localhost:3000/dashboard/completed/${name}`, {
       method: 'GET',
       headers: {
         'Content-type' : 'application/json',
       },
-      params: JSON.stringify({name})
+    }).then(data => {
+      console.log(data);
+      return data.text();
+    }).then(data => {
+      console.log(data);
+      setText(data);
     })
-
   };
 
 
@@ -29,7 +40,9 @@ const Completed = () => {
       <div className='intake'>
         <h1>Find a completed evaluation</h1>
         <br />
-        {/* <Form.Select
+
+        {/* This was going to be used as a prog. filled dropdown
+        <Form.Select
           aria-label='Default select example'
           value={name}
           onChange={handleNameSelect}
@@ -53,6 +66,17 @@ const Completed = () => {
           <Button variant='primary' type='submit'>
             Search
           </Button>
+          <div className='report'>
+            <FloatingLabel controlId='floatingTextarea2'>
+              <Form.Control
+                as='textarea'
+                placeholder='Leave a comment here'
+                style={{ height: '100px' }}
+                value={text}
+                
+              />
+            </FloatingLabel>
+          </div>
         </Form>
       </div>
     </>

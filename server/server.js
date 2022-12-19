@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const { json } = require('express');
+const StudentController = require('./controller/StudentController')
+const template = require('./template')
 
 //cors mainly for development since FE & BE are on different ports
 app.use(cors());
@@ -18,7 +20,7 @@ mongoose.connect(
   'mongodb+srv://felixljr:4U6CpjuN6mLaaJg9@cluster0.fhkemks.mongodb.net/CS_Mid_Solo?retryWrites=true&w=majority'
 );
 
-app.post('/dashboard', async (req, res) => {
+app.post('/dashboard', StudentController.createEval, async (req, res) => {
   try {
     await Student.create({
       firstName: req.body.fname,
@@ -29,7 +31,8 @@ app.post('/dashboard', async (req, res) => {
       conditions: req.body.condition,
       meds: req.body.meds,
       roll: req.body.roll,
-      crawl: req.body.sit,
+      sit: req.body.sit,
+      crawl: req.body.crawl,
       walk: req.body.walk,
       talk: req.body.words,
       VMIRaw: req.body.rawVMI,
@@ -41,6 +44,7 @@ app.post('/dashboard', async (req, res) => {
       MCRaw: req.body.rawMC,
       MCStand: req.body.scMC,
       MCIPR: req.body.prMC,
+      eval: res.locals.para,
     });
     return res.json({ status: 'info sent - ok' });
   } catch (err) {
@@ -48,8 +52,10 @@ app.post('/dashboard', async (req, res) => {
   }
 });
 
-app.get('/dashboard/completed/', (req, res) => {
-  // console.log(req);
+app.get('/dashboard/completed/:name', (req, res) => {
+  console.log(req.params.name);
+  console.log(template.testy);
+  res.send(template.testy);
   
 })
 

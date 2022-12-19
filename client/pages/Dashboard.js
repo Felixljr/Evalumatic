@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-
 const Dashboard = () => {
   const [fname, setFName] = useState('');
   const [lname, setLName] = useState('');
@@ -35,7 +34,7 @@ const Dashboard = () => {
     await fetch('http://localhost:3000/dashboard', {
       method: 'POST',
       headers: {
-        'Content-type' : 'application/json',
+        'Content-type': 'application/json',
       },
       body: JSON.stringify({
         fname,
@@ -47,6 +46,7 @@ const Dashboard = () => {
         meds,
         roll,
         sit,
+        crawl,
         walk,
         words,
         rawVMI,
@@ -57,10 +57,15 @@ const Dashboard = () => {
         prVP,
         rawMC,
         scMC,
-        prMC
-      })
+        prMC,
+      }),
     })
-    
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+      });
   }
 
   return (
