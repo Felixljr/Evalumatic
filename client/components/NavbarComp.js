@@ -11,22 +11,23 @@ function NavbarComp() {
           <Navbar.Brand>
             <h1>Evalumatic</h1>
           </Navbar.Brand>
+          {/* All of the Link tags were Nav.Link before; changed to clear error with <a> within <a> */}
           <Nav className='me-auto'>
-            <Nav.Link>
-              <Link className='navLink' to='/dashboard'>
-                <h5>&emsp;New&emsp;</h5>
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link className='navLink' to='/dashboard/completed'>
-                <h5>&emsp;Completed&emsp;</h5>
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link className='navLink' to='/'>
+            <Link className='navLink' to='/dashboard'>
+              {/* <Link className='navLink' to='/dashboard'> */}
+              <h5>&emsp;New&emsp;</h5>
+              {/* </Link> */}
+            </Link>
+            <Link className='navLink' to='/dashboard/completed'>
+              {/* <Link className='navLink' to='/dashboard/completed'> */}
+              <h5>&emsp;Completed&emsp;</h5>
+              {/* </Link> */}
+            </Link>
+            <Link className='navLink' to='/'>
+              {/* <Link className='navLink' to='/'> */}
                 <h5>&emsp;Logout&emsp;</h5>
-              </Link>
-            </Nav.Link>
+              {/* </Link> */}
+            </Link>
           </Nav>
         </Container>
       </Navbar>
