@@ -79,14 +79,14 @@ const Dashboard = () => {
             <Form.Control
               type='text'
               placeholder='First'
-              value={fname}
+              //value={fname}
               onChange={(e) => setFName(e.target.value)}
             />
             <br />
             <Form.Control
               type='text'
               placeholder='Last'
-              value={lname}
+              //value={lname}
               onChange={(e) => setLName(e.target.value)}
             />
           </Form.Group>
@@ -94,13 +94,13 @@ const Dashboard = () => {
           <Form.Control
             type='text'
             placeholder='Age'
-            value={age}
+            //value={age}
             onChange={(e) => setAge(e.target.value)}
           />
           <br />
           <Form.Select
             aria-label='Default select example'
-            value={sex}
+            //value={sex}
             onChange={(e) => setSex(e.target.value)}
           >
             <option>Sex</option>
@@ -110,7 +110,7 @@ const Dashboard = () => {
           <br />
           <Form.Select
             aria-label='Default select example'
-            value={reason}
+            //value={reason}
             onChange={(e) => setReason(e.target.value)}
           >
             <option>Reason for the evaluation</option>
@@ -121,14 +121,14 @@ const Dashboard = () => {
           <Form.Control
             type='text'
             placeholder='Condition(s) (including allergies, diagnoses, etc.)'
-            value={condition}
+            //value={condition}
             onChange={(e) => setCondition(e.target.value)}
           />
           <br />
           <Form.Control
             type='text'
             placeholder='List Medications'
-            value={meds}
+            //value={meds}
             onChange={(e) => setMeds(e.target.value)}
           />
           <br />
@@ -137,35 +137,35 @@ const Dashboard = () => {
           <Form.Control
             type='text'
             placeholder='Rolling'
-            value={roll}
+            //value={roll}
             onChange={(e) => setRoll(e.target.value)}
           />
           <br />
           <Form.Control
             type='text'
             placeholder='Crawling'
-            value={crawl}
+            //value={crawl}
             onChange={(e) => setCrawl(e.target.value)}
           />
           <br />
           <Form.Control
             type='text'
             placeholder='Walking'
-            value={walk}
+            //value={walk}
             onChange={(e) => setWalk(e.target.value)}
           />
           <br />
           <Form.Control
             type='text'
             placeholder='Sitting'
-            value={sit}
+            //value={sit}
             onChange={(e) => setSit(e.target.value)}
           />
           <br />
           <Form.Control
             type='text'
             placeholder='Talking'
-            value={words}
+            //value={words}
             onChange={(e) => setWords(e.target.value)}
           />
           <br />
@@ -176,7 +176,7 @@ const Dashboard = () => {
             <Form.Group
               as={Col}
               controlId='formGridCity'
-              value={rawVMI}
+              //value={rawVMI}
               onChange={(e) => setRawVMI(e.target.value)}
             >
               <Form.Label>VMI Raw Score</Form.Label>
@@ -186,7 +186,7 @@ const Dashboard = () => {
             <Form.Group
               as={Col}
               controlId='formGridZip'
-              value={scVMI}
+              //value={scVMI}
               onChange={(e) => setSCVMI(e.target.value)}
             >
               <Form.Label>VMI Standard Score</Form.Label>
@@ -197,7 +197,7 @@ const Dashboard = () => {
               <Form.Label>Performance Range</Form.Label>
               <Form.Select
                 defaultValue='Choose...'
-                value={prVMI}
+                //value={prVMI}
                 onChange={(e) => setPRVMI(e.target.value)}
               >
                 <option>Choose...</option>
@@ -211,7 +211,7 @@ const Dashboard = () => {
             <Form.Group
               as={Col}
               controlId='formGridCity'
-              value={rawVP}
+              //value={rawVP}
               onChange={(e) => setRawVP(e.target.value)}
             >
               <Form.Label>Visual Perceptual Raw Score</Form.Label>
@@ -221,7 +221,7 @@ const Dashboard = () => {
             <Form.Group
               as={Col}
               controlId='formGridZip'
-              value={scVP}
+              //value={scVP}
               onChange={(e) => setSCVP(e.target.value)}
             >
               <Form.Label>Visual Perceptual Standard Score</Form.Label>
@@ -232,7 +232,7 @@ const Dashboard = () => {
               <Form.Label>Performance Range</Form.Label>
               <Form.Select
                 defaultValue='Choose...'
-                value={prVP}
+                //value={prVP}
                 onChange={(e) => setPRVP(e.target.value)}
               >
                 <option>Choose...</option>
@@ -246,7 +246,7 @@ const Dashboard = () => {
             <Form.Group
               as={Col}
               controlId='formGridCity'
-              value={rawMC}
+              //value={rawMC}
               onChange={(e) => setRawMC(e.target.value)}
             >
               <Form.Label>Motor Coordination Raw Score</Form.Label>
@@ -256,7 +256,7 @@ const Dashboard = () => {
             <Form.Group
               as={Col}
               controlId='formGridZip'
-              value={scMC}
+              //value={scMC}
               onChange={(e) => setSCMC(e.target.value)}
             >
               <Form.Label>Motor Coordination Standard Score</Form.Label>
@@ -267,7 +267,7 @@ const Dashboard = () => {
               <Form.Label>Performance Range</Form.Label>
               <Form.Select
                 defaultValue='Choose...'
-                value={prMC}
+                //value={prMC}
                 onChange={(e) => setPRMC(e.target.value)}
               >
                 <option>Choose...</option>

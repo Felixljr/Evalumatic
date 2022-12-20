@@ -47,10 +47,6 @@ const Completed = () => {
     console.log('delete triggered')
     await fetch(`http://localhost:3000/dashboard/completed/${name}`, {
       method: 'DELETE',
-      // headers: {
-      //   'Content-type': 'application/json',
-      // },
-      //body: JSON.stringify({ name }),
     })
       .then((res) => {
         return res.json();
