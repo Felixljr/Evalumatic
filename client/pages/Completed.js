@@ -67,6 +67,7 @@ const Completed = () => {
           <Form.Group className='mb-3' controlId='formBasicEmail'>
             <Form.Control
               type='text'
+              style={{ height: '50px', fontSize: '20px' }}
               placeholder='First Name'
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -81,14 +82,14 @@ const Completed = () => {
               <Form.Control
                 as='textarea'
                 placeholder='Leave a comment here'
-                style={{ height: '400px' }}
+                style={{ height: '400px', fontSize: '20px' }}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
             </FloatingLabel>
           </div>
           <div className='actionButtons'>
-            <Button variant='primary' type='submit' onClick={updateEval}>
+            <Button variant='success' type='submit' onClick={updateEval}>
               Save
             </Button>
             <Button variant='danger' type='submit' onClick={deleteRecord}>

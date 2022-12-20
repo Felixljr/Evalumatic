@@ -5,7 +5,7 @@ const StudentController = {
 
     const para = `${req.body.fname} ${temp.intro[0]} ${req.body.age} ${
       temp.intro[1]
-    } ${req.body.sex === 'male' ? 'boy.' : 'girl.'} ${temp.intro[2]} ${
+    } ${req.body.sex === 'male' ? 'boy' : 'girl'} ${temp.intro[2]} ${
       req.body.reason === 'parent'
         ? 'is being conducted due to the concerns of the parent.'
         : 'is taking place due to concerns expressed by the teacher.'
