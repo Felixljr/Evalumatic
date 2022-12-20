@@ -46,18 +46,40 @@ app.post('/dashboard', StudentController.createEval, async (req, res) => {
       MCIPR: req.body.prMC,
       eval: res.locals.para,
     });
-    return res.json({ status: 'info sent - ok' });
+    return res.json({ status: 'ok - eval created' });
   } catch (err) {
      return res.json({ status: 'error: ', err });
   }
 });
 
-app.get('/dashboard/completed/:name', (req, res) => {
-  console.log(req.params.name);
-  console.log(template.testy);
-  res.send(template.testy);
-  
+app.get('/dashboard/completed/:name', async (req, res) => {
+  try {
+    const record = await Student.findOne({ firstName: req.params.name }).exec();
+    return res.send(record.eval)
+  } catch (err) {
+    return res.send('No evaluations found for this student');
+  }
 })
+
+app.post('/dashboard/completed', async (req, res) => {
+  const filter = { firstName: req.body.name };
+  const update = { eval: req.body.text };
+  try {
+    await Student.findOneAndUpdate(filter, update);
+    return res.json({ status: 'eval updated' });
+  } catch (err) {
+    return res.json({ status: 'error: ', err });
+  }
+});
+
+app.delete('/dashboard/completed/:name', async (req, res) => {
+  try {
+    await Student.findOneAndDelete({ firstName: req.params.name });
+    return res.json({ status: 'record deleted' });
+  } catch (err) {
+    return res.json({ status: 'error: ', err });
+  }
+});
 
 //listen placed within mongoose connection
 mongoose.connection.once('open', () => {

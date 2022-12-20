@@ -1,6 +1,6 @@
 const intro = [
   ' is a ',
-  ' years old ',
+  ' year old ',
   '. This Occupational Therapy (OT) evaluation ',
   'From the Occupational and Physical Therapy Parents Checklist, parent reported that',
   'has',

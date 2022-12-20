@@ -20,5 +20,12 @@
 }
 
 .report {
-  
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.actionButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
