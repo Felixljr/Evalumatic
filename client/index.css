@@ -1,3 +1,8 @@
+.error404{
+  font-size: 100px;
+  text-align: center;
+}
+
 
 .login {
   margin-top: 20%;
@@ -6,7 +11,7 @@
   width: 40%;
 }
 
-.intake {
+.intake, .search {
   margin-top: 3%;
   margin-left: auto;
   margin-right: auto;
@@ -20,7 +25,7 @@
 }
 
 .report {
-  margin-top: 50px;
+  margin-top: 5px;
   margin-bottom: 20px;
 }
 
@@ -30,7 +35,18 @@
   justify-content: space-evenly;
 }
 
-.error404{
-  font-size: 100px;
-  text-align: center;
+.alert-hidden {
+  margin-top: 20px;
+  opacity: 0;
+  transition: all 250ms linear 1s;
+}
+
+.alert-shown {
+  margin-top: 20px;
+  opacity: 1;
+  transition: all 250ms linear;
+}
+
+.Alert-Div{
+  height: 75px;
 }

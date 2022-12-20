@@ -29,8 +29,11 @@ const Dashboard = () => {
   const [scMC, setSCMC] = useState('');
   const [prMC, setPRMC] = useState('');
 
+  const [isShowAlert, setShowAlert] = useState(false);
+
   async function generateEval(e) {
     e.preventDefault();
+    setShowAlert(true);
     await fetch('http://localhost:3000/dashboard', {
       method: 'POST',
       headers: {
@@ -86,7 +89,6 @@ const Dashboard = () => {
             <Form.Control
               type='text'
               placeholder='Last'
-              //value={lname}
               onChange={(e) => setLName(e.target.value)}
             />
           </Form.Group>
@@ -94,13 +96,11 @@ const Dashboard = () => {
           <Form.Control
             type='text'
             placeholder='Age'
-            //value={age}
             onChange={(e) => setAge(e.target.value)}
           />
           <br />
           <Form.Select
             aria-label='Default select example'
-            //value={sex}
             onChange={(e) => setSex(e.target.value)}
           >
             <option>Sex</option>
@@ -110,7 +110,7 @@ const Dashboard = () => {
           <br />
           <Form.Select
             aria-label='Default select example'
-            //value={reason}
+            // value={reason}
             onChange={(e) => setReason(e.target.value)}
           >
             <option>Reason for the evaluation</option>
@@ -282,6 +282,18 @@ const Dashboard = () => {
           <Button variant='primary' type='submit'>
             Submit
           </Button>
+          {/* Alert for saved progress and delete */}
+          <div className='Alert-Div'>
+            <div
+              className={`alert alert-success ${
+                isShowAlert ? 'alert-shown' : 'alert-hidden'
+              }`}
+              onTransitionEnd={() => setShowAlert(false)}
+            >
+              Evaluation Successfully Created!
+            </div>
+          </div>
+          {/* End Alert */}
         </form>
         <br />
         <br />

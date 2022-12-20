@@ -86,13 +86,15 @@ return (
           Search
         </Button>
         {/* Alert for saved progress and delete */}
-        <div
-          className={`alert ${alertColor} ${
-            isShowAlert ? 'alert-shown' : 'alert-hidden'
-          }`}
-          onTransitionEnd={() => setShowAlert(false)}
-        >
-          {alertMsg}
+        <div className='Alert-Div'>
+          <div
+            className={`alert ${alertColor} ${
+              isShowAlert ? 'alert-shown' : 'alert-hidden'
+            }`}
+            onTransitionEnd={() => setShowAlert(false)}
+          >
+            {alertMsg}
+          </div>
         </div>
         {/* End Alert */}
         <div className='report'>
@@ -107,7 +109,7 @@ return (
           </FloatingLabel>
         </div>
         <div className='actionButtons'>
-          <Button variant='primary' type='submit' onClick={updateEval}>
+          <Button variant='success' type='submit' onClick={updateEval}>
             Save
           </Button>
           <Button variant='danger' type='submit' onClick={deleteRecord}>
