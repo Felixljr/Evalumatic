@@ -5,7 +5,7 @@
 
 
 .login {
-  margin-top: 20%;
+  /* margin-top: 20%; */
   margin-left: auto;
   margin-right: auto;
   width: 40%;
@@ -29,7 +29,7 @@
   margin-bottom: 20px;
 }
 
-.actionButtons{
+.actionButtons, .logoBrand{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -49,4 +49,15 @@
 
 .Alert-Div{
   height: 75px;
+}
+
+.motto{
+  color: white;
+  font-style: italic;
+  width: 200px;
+  margin-right: 50px;
+}
+
+.navLogo{
+  height: 50px;
 }
