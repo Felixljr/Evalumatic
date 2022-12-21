@@ -17,7 +17,7 @@ function LoginComp() {
       setAlertMsg('Login Successful');
       setShowAlert(true);
       //send to this location
-      setInterval(() => (window.location.href = '/dashboard'), 3000);
+      setInterval(() => (window.location.href = '/dashboard'), 2000);
     } else {
       setAlertColor('alert-danger');
       setAlertMsg('Username and/or Password Invalid!');

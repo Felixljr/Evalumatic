@@ -34,6 +34,7 @@ const Dashboard = () => {
   async function generateEval(e) {
     e.preventDefault();
     setShowAlert(true);
+    setInterval(() => (window.location.href = '/dashboard/completed'), 4000);
     await fetch('http://localhost:3000/dashboard', {
       method: 'POST',
       headers: {
@@ -78,17 +79,17 @@ const Dashboard = () => {
         <h1>Start a new evaluation</h1>
         <form onSubmit={generateEval}>
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-            <Form.Label>Student Name</Form.Label>
+            <Form.Label></Form.Label>
             <Form.Control
               type='text'
-              placeholder='First'
+              placeholder="Student's First Name"
               //value={fname}
               onChange={(e) => setFName(e.target.value)}
             />
             <br />
             <Form.Control
               type='text'
-              placeholder='Last'
+              placeholder="Student's Last Name"
               onChange={(e) => setLName(e.target.value)}
             />
           </Form.Group>
@@ -290,7 +291,7 @@ const Dashboard = () => {
               }`}
               onTransitionEnd={() => setShowAlert(false)}
             >
-              Evaluation Successfully Created!
+              Evaluation Successfully Created - Redirecting to Completed Evaluations!
             </div>
           </div>
           {/* End Alert */}

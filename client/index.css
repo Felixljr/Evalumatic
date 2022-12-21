@@ -25,13 +25,23 @@
 
 .report {
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  /* border: 5px solid gray;
+  border-radius: 2% */
 }
 
-.actionButtons, .logoBrand{
+.logoBrand{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-right: 40px;
+}
+
+.actionButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
 .alert-hidden {
@@ -66,4 +76,10 @@
   width: 400px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.export {
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
 }
