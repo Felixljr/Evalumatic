@@ -34,7 +34,7 @@ const Dashboard = () => {
   async function generateEval(e) {
     e.preventDefault();
     setShowAlert(true);
-    setInterval(() => (window.location.href = '/dashboard/completed'), 4000);
+    setInterval(() => (window.location.href = '/dashboard/completed'), 2000);
     await fetch('http://localhost:3000/dashboard', {
       method: 'POST',
       headers: {
