@@ -52,6 +52,17 @@ app.post('/dashboard', StudentController.createEval, async (req, res) => {
   }
 });
 
+app.get('/dashboard/all', async (req, res) => {
+  try {
+    const records = await Student.find({});
+    //console.log(records);
+    //res.json({ status: 'ok - eval created' });
+    return res.json(records);
+  } catch (err) {
+    return res.send('No records found.');
+  }
+});
+
 app.get('/dashboard/completed/:name', async (req, res) => {
   try {
     const record = await Student.findOne({ firstName: req.params.name }).exec();

@@ -1,11 +1,11 @@
 import React from 'react';
 import NavbarComp from '../components/NavbarComp';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { saveAs } from 'file-saver';
-
+import axios from 'axios';
 import {
   Document,
   Packer,
@@ -19,14 +19,34 @@ import {
 
 const Completed = () => {
   const [name, setName] = useState('');
-  const [text, setText] = useState();
+  const [text, setText] = useState('');
   const [isShowAlert, setShowAlert] = useState(false);
   const [alertColor, setAlertColor] = useState('');
   const [alertMsg, setAlertMsg] = useState('');
 
-  const handleNameSelect = async (e) => {
+  const [dropDown, setDropDown] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/dashboard/all')
+      .then((res) => {
+        console.log(res);
+        setDropDown(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [name]);
+
+  const oneStepHandle = (e) =>{
     e.preventDefault();
-    await fetch(`http://localhost:3000/dashboard/completed/${name}`, {
+    setName(e.target.value);
+    handleNameSelect(e.target.value);
+  }
+
+
+  const handleNameSelect = async (selectedName) => {
+    await fetch(`http://localhost:3000/dashboard/completed/${selectedName}`, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
@@ -37,6 +57,7 @@ const Completed = () => {
       })
       .then((data) => {
         setText(data);
+        //  console.log(`NAME: ${name}`);
       });
   };
 
@@ -352,7 +373,7 @@ const Completed = () => {
     });
 
     Packer.toBlob(doc).then((blob) => {
-      saveAs(blob, 'My Document.docx');
+      saveAs(blob, `OT Evaluation For ${name}.docx`);
     });
   }
 
@@ -367,8 +388,21 @@ const Completed = () => {
       <div className='search'>
         <h1>Find a completed evaluation</h1>
         <br />
-        <Form onSubmit={handleNameSelect}>
-          <Form.Group className='mb-3' controlId='formBasicEmail'>
+
+        <Form.Select
+          aria-label='Default select example'
+          onChange={oneStepHandle}
+        >
+          <option>Select a Name</option>
+          {dropDown.map((student) => (
+            <option value={student.firstName} key={student._id}>
+              {student.firstName}
+            </option>
+          ))}
+        </Form.Select>
+
+        <Form>
+          {/* <Form.Group className='mb-3' controlId='formBasicEmail'>
             <Form.Control
               type='text'
               placeholder='First Name'
@@ -379,7 +413,8 @@ const Completed = () => {
 
           <Button variant='primary' type='submit'>
             Search
-          </Button>
+          </Button> */}
+
           {/* Alert for saved progress and delete */}
           <div className='Alert-Div'>
             <div
