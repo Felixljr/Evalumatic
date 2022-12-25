@@ -94,7 +94,7 @@ const Completed = () => {
         return res.json();
       })
       .then((res) => {
-        setText(`ALL RECORDS FOR ${name.toLocaleUpperCase()} DELETED!`);
+        setText(`ALL RECORDS FOR ${name.toLocaleUpperCase()} HAVE BEEN DELETED!`);
         console.log(res);
       });
   }
