@@ -9,6 +9,7 @@ const path = require('path');
 const { json } = require('express');
 const StudentController = require('./controller/StudentController')
 const template = require('./template')
+require('dotenv').config()
 
 //cors mainly for development since FE & BE are on different ports
 app.use(cors());
