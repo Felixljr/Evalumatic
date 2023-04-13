@@ -15,7 +15,7 @@ app.use(cors());
 //middleware that parses JSON in the body
 app.use(express.json());
 
-//connect to db (use an .env when functioning)
+//connect to db(use an .env when functioning)
 mongoose.connect(process.env.MONGO_URI);
 
 app.post('/dashboard', StudentController.createEval, async (req, res) => {
